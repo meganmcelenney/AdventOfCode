@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+//Megan McElenney
+//December 8
+public class AdventDay1 
+{
+	public static void main(String[] args) throws IOException
+	{
+		int finalSum = 0;
+		int num = 0;
+		String line = null;
+		boolean stop = false;
+		int here = 0;
+		
+		ArrayList<Integer> frequencies = new ArrayList<Integer>(); 
+		frequencies.add(0);
+		
+		FileReader fileR = new FileReader("inputDay1.txt");
+	    BufferedReader stdin = new BufferedReader (fileR);
+	    
+	    while(!stop || line.length() == 0) 
+	    {
+	    	line = stdin.readLine();  //read a line
+	    	/*if(line.charAt(0) == '+')
+	    	{
+	    		line =line.substring(1);
+	    	}*/
+	    	num = Integer.parseInt(line);
+	    	finalSum += num;
+	    	for(int i = 0; i < frequencies.size(); i++)
+	    	{
+	    		if(frequencies.contains(finalSum))
+	    		{
+	    			System.out.println("The first repeat is " + finalSum);
+	    			stop = true;
+	    			return;
+	    		}	
+	    	}
+	    	frequencies.add(finalSum);
+	    	System.out.println("The total frequency is " + finalSum);
+	    }
+    
+	}
+}
