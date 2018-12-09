@@ -44,6 +44,5 @@ public class AdventDay1
 	    	frequencies.add(finalSum);
 	    	System.out.println("The total frequency is " + finalSum);
 	    }
-    
 	}
 }
